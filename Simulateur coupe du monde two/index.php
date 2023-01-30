@@ -1,28 +1,16 @@
 <?php
     // require 'functions.php';
-    // $teams = json_decode($_COOKIE['teams'], true);
     if (isset($_COOKIE["teams"])) {
         $teams = json_decode($_COOKIE['teams'], true);
     } else {
         $teams = [
-            "morocco" => ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
-            "croitia" => ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
-            "belgium" => ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
-            "canada" =>  ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
+            "morocco" => ["POINTS" => 0, "played" => 0, "GAMES_WON" => 0, "GAMES_EQUAL" => 0, "GAMES_LOSTS" => 0, "GOALS_SCORED" => 0, "GOALS_RECEIVED" => 0, "DIFF" => 0],
+            "croitia" => ["POINTS" => 0, "played" => 0, "GAMES_WON" => 0, "GAMES_EQUAL" => 0, "GAMES_LOSTS" => 0, "GOALS_SCORED" => 0, "GOALS_RECEIVED" => 0, "DIFF" => 0],
+            "belgium" => ["POINTS" => 0, "played" => 0, "GAMES_WON" => 0, "GAMES_EQUAL" => 0, "GAMES_LOSTS" => 0, "GOALS_SCORED" => 0, "GOALS_RECEIVED" => 0, "DIFF" => 0],
+            "canada" =>  ["POINTS" => 0, "played" => 0, "GAMES_WON" => 0, "GAMES_EQUAL" => 0, "GAMES_LOSTS" => 0, "GOALS_SCORED" => 0, "GOALS_RECEIVED" => 0, "DIFF" => 0],
         ];
     };
-    // $teams = [
-    //     "morocco" => ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
-    //     "croitia" => ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
-    //     "belgium" => ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
-    //     "canada" =>  ["point" => 0, "game" => 0, "gan" => 0, "emp" => 0, "per" => 0, "gf" => 0, "gc" => 0, "diff" => 0],
-    // ];
-    // setcookie('teams', json_encode($teams));
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +33,7 @@
         </div>
     </nav>
     <!-- slider -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators ">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -53,25 +41,10 @@
         </div>
         <div class="carousel-inner slide-one">
           <div class="carousel-item active">
-            <!-- <img src="images/1.jpg" class="d-block w-100" alt="..."> -->
-            <!-- <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div> -->
           </div>
           <div class="carousel-item slide-two">
-            <!-- <img src="images/2.jpg" class="d-block w-100" alt="..."> -->
-            <!-- <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div> -->
           </div>
           <div class="carousel-item slide-three">
-            <!-- <img src="images/3.jpg" class="d-block w-100" alt="..."> -->
-            <!-- <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div> -->
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -82,39 +55,15 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-    </div>
-
+    </div> -->
     <!-- ================================================== -->
-
+    
+    <!-- ================================================== -->
     <div>
         <h1 class="text-center">World Cup Simulator</h1>
-        <?php
-        // if ($_SERVER["REQUEST_METHOD"] == 'GET' ) {
-
-        //     // print_r($matches);
-            // setcookie('matches', json_encode($matches));
-        // } elseif ($_SERVER["REQUEST_METHOD"] == 'GET' && isset($_GET['reset'])){
-        //     echo "lmjeyf";
-        //     $matches = array( 
-        //         "morrocoVCroatia" => array("MOROCCO" => 0 , "CROATIA" => 0 , "Status" => false  ) ,
-        //         "morrocoVSBelgium" => array("MOROCCO" => 0 , "BELGium" => 0   , "Status" => false )    ,
-        //         "morrocoVSCanada" => array("MOROCCO" => 0 , "CANADA" => 0   , "Status" => false ) ,
-        //         "belgiuVSCanada" => array("BELGium" => 0 , "CANADA" => 0   , "Status" => false ) ,
-        //         "belgiumVSSpain" => array("BELGium" => 0 , "CROATIA" => 0   , "Status" => false ) ,
-        //         "CanadaVSCroatia" => array("CANADA" => 0 , "CROATIA" => 0   , "Status" => false ) ,
-        //     );
-        // }
-        // echo "<pre>";
-        // echo $teams;
-        // echo "</pre>";
-        // print_r($teams);
-        // setcookie('teams', json_encode($teams));
-        ?>
     </div>
 
-    <!-- ================================================== -->
-
-    <main class="container d-flex gap-3">
+    <main class="m-5 d-flex gap-3">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
             <div class=" d-flex justify-content-between mb-3 card-color">
                 <div class="w-100">
@@ -255,10 +204,10 @@
                 </div>
             </div>
             <!-- <button >ADD</button> -->
-            <button type="submit" name="submit" class="btn btn-danger">Simulateur</button>
+            <button type="submit" name="submit" class="btn btn-danger ml-5 container w-50 h-15 h1 d-flex justify-content-center">Simulateur</button>
         </form>
     <!-- Create Table -->
-        <table class="table w-50">
+      <table class="table w-50">
         <thead>
           <tr>
             <th class="text-bg-secondary" scope="col">#</th>
@@ -266,8 +215,8 @@
             <th class="text-bg-secondary" scope="col">PTS.</th>
             <th class="text-bg-secondary" scope="col">MTH.</th>
             <th class="text-bg-secondary" scope="col">WIN.</th>
-            <th class="text-bg-secondary" scope="col">EMP</th>
-            <th class="text-bg-secondary" scope="col">PER</th>
+            <th class="text-bg-secondary" scope="col">GAMES_EQUAL</th>
+            <th class="text-bg-secondary" scope="col">GAMES_LOSTS</th>
             <th class="text-bg-secondary" scope="col">G.F.</th>
             <th class="text-bg-secondary" scope="col">G.C.</th>
             <th class="text-bg-secondary" scope="col">+/-</th>
@@ -276,226 +225,208 @@
             <tbody>
              <?php
                 $i = 1;        
-                // ======================= Matches are run according to goals and points ... ==============================
-                if(isset($_GET['submit'])) { 
-                    // click in button add result
+                // ======================= Matches are run according to goals and POINTSs ... ==============================
+              if(isset($_GET['submit'])) { 
+                // click in button add result
                 //===match 1
                 if ($_GET['inpMoroccoMatchOne'] != "" && $_GET['inpCroitiaMatchOne'] != "") {
                   #morocco
-                  $teams["morocco"]["game"] += 1;
-                  $teams["morocco"]['gf'] += $_GET['inpMoroccoMatchOne'];
-                  $teams["morocco"]['gc'] += $_GET['inpCroitiaMatchOne'];
+                  $teams["morocco"]["played"] += 1;
+                  $teams["morocco"]['GOALS_SCORED'] += $_GET['inpMoroccoMatchOne'];
+                  $teams["morocco"]['GOALS_RECEIVED'] += $_GET['inpCroitiaMatchOne'];
                   #Croitia
-                  $teams["croitia"]['game'] += 1;
-                  $teams["croitia"]['gf'] += $_GET['inpCroitiaMatchOne'];
-                  $teams["croitia"]['gc'] += $_GET['inpMoroccoMatchOne'];
+                  $teams["croitia"]['played'] += 1;
+                  $teams["croitia"]['GOALS_SCORED'] += $_GET['inpCroitiaMatchOne'];
+                  $teams["croitia"]['GOALS_RECEIVED'] += $_GET['inpMoroccoMatchOne'];
                   if ($_GET['inpMoroccoMatchOne'] > $_GET['inpCroitiaMatchOne'] ) {
-                          $teams["morocco"]['point'] += 3;
-                          $teams["morocco"]['gan'] += 1;
-                          $teams["croitia"]['per'] += 1;
+                          $teams["morocco"]['POINTS'] += 3;
+                          $teams["morocco"]['GAMES_WON'] += 1;
+                          $teams["croitia"]['GAMES_LOSTS'] += 1;
                   } elseif ($_GET['inpMoroccoMatchOne'] < $_GET['inpCroitiaMatchOne']) {
-                          $teams["croitia"]['point'] += 3;
-                          $teams["croitia"]['gan'] += 1;
-                          $teams["morocco"]['per'] += 1;
+                          $teams["croitia"]['POINTS'] += 3;
+                          $teams["croitia"]['GAMES_WON'] += 1;
+                          $teams["morocco"]['GAMES_LOSTS'] += 1;
                   } else {
-                          $teams["croitia"]['point'] += 1;
-                          $teams["croitia"]['emp'] += 1;
-                          $teams["morocco"]['point'] += 1;
-                          $teams["morocco"]['emp'] += 1;
+                          $teams["croitia"]['POINTS'] += 1;
+                          $teams["croitia"]['GAMES_EQUAL'] += 1;
+                          $teams["morocco"]['POINTS'] += 1;
+                          $teams["morocco"]['GAMES_EQUAL'] += 1;
                   };
                 };
                 //===Match 2
                 if ($_GET['inpBelgiumMatchTwo'] != "" && $_GET['inpCanadaMatchTwo'] != "") {
                   #Belgium
-                  $teams["belgium"]['game'] += 1;
-                  $teams["belgium"]['gf'] += $_GET['inpBelgiumMatchTwo'];
-                  $teams["belgium"]['gc'] += $_GET['inpCanadaMatchTwo'];
+                  $teams["belgium"]['played'] += 1;
+                  $teams["belgium"]['GOALS_SCORED'] += $_GET['inpBelgiumMatchTwo'];
+                  $teams["belgium"]['GOALS_RECEIVED'] += $_GET['inpCanadaMatchTwo'];
                   # Canada
-                  $teams["canada"]['game'] += 1;
-                  $teams["canada"]['gf'] += $_GET['inpCanadaMatchTwo'];
-                  $teams["canada"]['gc'] += $_GET['inpBelgiumMatchTwo'];
+                  $teams["canada"]['played'] += 1;
+                  $teams["canada"]['GOALS_SCORED'] += $_GET['inpCanadaMatchTwo'];
+                  $teams["canada"]['GOALS_RECEIVED'] += $_GET['inpBelgiumMatchTwo'];
                   if ($_GET['inpBelgiumMatchTwo'] > $_GET['inpCanadaMatchTwo'] ) {
-                          $teams["belgium"]['point'] += 3;
-                          $teams["belgium"]['gan'] += 1;
-                          $teams["canada"]['per'] += 1;
+                          $teams["belgium"]['POINTS'] += 3;
+                          $teams["belgium"]['GAMES_WON'] += 1;
+                          $teams["canada"]['GAMES_LOSTS'] += 1;
                   } elseif ($_GET['inpBelgiumMatchTwo'] < $_GET['inpCanadaMatchTwo']) {
-                          $teams["canada"]['point'] += 3;
-                          $teams["canada"]['gan'] += 1;
-                          $teams["belgium"]['per'] += 1;
+                          $teams["canada"]['POINTS'] += 3;
+                          $teams["canada"]['GAMES_WON'] += 1;
+                          $teams["belgium"]['GAMES_LOSTS'] += 1;
                   } else {
-                          $teams["belgium"]['point'] += 1;
-                          $teams["belgium"]['emp'] += 1;
-                          $teams["canada"]['point'] += 1;
-                          $teams["canada"]['emp'] += 1;
+                          $teams["belgium"]['POINTS'] += 1;
+                          $teams["belgium"]['GAMES_EQUAL'] += 1;
+                          $teams["canada"]['POINTS'] += 1;
+                          $teams["canada"]['GAMES_EQUAL'] += 1;
                   };
                 };
                 //===Match 3
                 if ($_GET['inpMoroccoMatchThree'] != "" && $_GET['inpBelgiumMatchThree'] != "") {     
                   # Morocco
-                  $teams["morocco"]['game'] += 1;
-                  $teams["morocco"]['gf'] += $_GET['inpMoroccoMatchThree'];
-                  $teams["morocco"]['gc'] += $_GET['inpBelgiumMatchThree'];
+                  $teams["morocco"]['played'] += 1;
+                  $teams["morocco"]['GOALS_SCORED'] += $_GET['inpMoroccoMatchThree'];
+                  $teams["morocco"]['GOALS_RECEIVED'] += $_GET['inpBelgiumMatchThree'];
                   #Belgium
-                  $teams["belgium"]['game'] += 1;
-                  $teams["belgium"]['gf'] += $_GET['inpBelgiumMatchThree'];
-                  $teams["belgium"]['gc'] += $_GET['inpMoroccoMatchThree'];
+                  $teams["belgium"]['played'] += 1;
+                  $teams["belgium"]['GOALS_SCORED'] += $_GET['inpBelgiumMatchThree'];
+                  $teams["belgium"]['GOALS_RECEIVED'] += $_GET['inpMoroccoMatchThree'];
                   if ($_GET['inpMoroccoMatchThree'] > $_GET['inpBelgiumMatchThree'] ) {
-                          $teams["morocco"]['point'] += 3;
-                          $teams["morocco"]['gan'] += 1;
-                          $teams["belgium"]['per'] += 1;
+                          $teams["morocco"]['POINTS'] += 3;
+                          $teams["morocco"]['GAMES_WON'] += 1;
+                          $teams["belgium"]['GAMES_LOSTS'] += 1;
                   } elseif ($_GET['inpMoroccoMatchThree'] < $_GET['inpBelgiumMatchThree']) {
-                          $teams["belgium"]['point'] += 3;
-                          $teams["belgium"]['gan'] += 1;
-                          $teams["morocco"]['per'] += 1;
+                          $teams["belgium"]['POINTS'] += 3;
+                          $teams["belgium"]['GAMES_WON'] += 1;
+                          $teams["morocco"]['GAMES_LOSTS'] += 1;
                   } else {
-                          $teams["morocco"]['point'] += 1;
-                          $teams["morocco"]['emp'] += 1;
-                          $teams["belgium"]['point'] += 1;
-                          $teams["belgium"]['emp'] += 1;
+                          $teams["morocco"]['POINTS'] += 1;
+                          $teams["morocco"]['GAMES_EQUAL'] += 1;
+                          $teams["belgium"]['POINTS'] += 1;
+                          $teams["belgium"]['GAMES_EQUAL'] += 1;
                   };
                 };
                 //=== Match 4
                 if ($_GET['inpCroitiaMatchFoor'] != "" && $_GET['inpCanadaMatchFoor'] != "") {
                   #Croitia
-                  $teams["croitia"]['game'] += 1;
-                  $teams["croitia"]['gf'] += $_GET['inpCroitiaMatchFoor'];
-                  $teams["croitia"]['gc'] += $_GET['inpCanadaMatchFoor'];
+                  $teams["croitia"]['played'] += 1;
+                  $teams["croitia"]['GOALS_SCORED'] += $_GET['inpCroitiaMatchFoor'];
+                  $teams["croitia"]['GOALS_RECEIVED'] += $_GET['inpCanadaMatchFoor'];
                   #Cnada
-                  $teams["canada"]['game'] += 1;
-                  $teams["canada"]['gf'] += $_GET['inpCanadaMatchFoor'];
-                  $teams["canada"]['gc'] += $_GET['inpCroitiaMatchFoor'];
+                  $teams["canada"]['played'] += 1;
+                  $teams["canada"]['GOALS_SCORED'] += $_GET['inpCanadaMatchFoor'];
+                  $teams["canada"]['GOALS_RECEIVED'] += $_GET['inpCroitiaMatchFoor'];
                   if ($_GET['inpCroitiaMatchFoor'] > $_GET['inpCanadaMatchFoor'] ) {
-                          $teams["croitia"]['point'] += 3;
-                          $teams["croitia"]['gan'] += 1;
-                          $teams["canada"]['per'] += 1;
+                          $teams["croitia"]['POINTS'] += 3;
+                          $teams["croitia"]['GAMES_WON'] += 1;
+                          $teams["canada"]['GAMES_LOSTS'] += 1;
                   } elseif ($_GET['inpCroitiaMatchFoor'] < $_GET['inpCanadaMatchFoor']) {
-                          $teams["canada"]['point'] += 3;
-                          $teams["canada"]['gan'] += 1;
-                          $teams["croitia"]['per'] += 1;
+                          $teams["canada"]['POINTS'] += 3;
+                          $teams["canada"]['GAMES_WON'] += 1;
+                          $teams["croitia"]['GAMES_LOSTS'] += 1;
                   } else {
-                          $teams["croitia"]['point'] += 1;
-                          $teams["croitia"]['emp'] += 1;
-                          $teams["canada"]['point'] += 1;
-                          $teams["canada"]['emp'] += 1;
+                          $teams["croitia"]['POINTS'] += 1;
+                          $teams["croitia"]['GAMES_EQUAL'] += 1;
+                          $teams["canada"]['POINTS'] += 1;
+                          $teams["canada"]['GAMES_EQUAL'] += 1;
                   };
                 };
                 //=== Match 5
                 if ($_GET['inpBelgiumMatchFive'] != "" && $_GET['inpCroitiaMatchFive'] != "") {
                   #Belgium
-                  $teams["belgium"]['game'] += 1;
-                  $teams["belgium"]['gf'] += $_GET['inpBelgiumMatchFive'];
-                  $teams["belgium"]['gc'] += $_GET['inpCroitiaMatchFive'];
+                  $teams["belgium"]['played'] += 1;
+                  $teams["belgium"]['GOALS_SCORED'] += $_GET['inpBelgiumMatchFive'];
+                  $teams["belgium"]['GOALS_RECEIVED'] += $_GET['inpCroitiaMatchFive'];
                   #Croitia
-                  $teams["croitia"]['game'] += 1;
-                  $teams["croitia"]['gf'] += $_GET['inpCroitiaMatchFive'];
-                  $teams["croitia"]['gc'] += $_GET['inpBelgiumMatchFive'];
+                  $teams["croitia"]['played'] += 1;
+                  $teams["croitia"]['GOALS_SCORED'] += $_GET['inpCroitiaMatchFive'];
+                  $teams["croitia"]['GOALS_RECEIVED'] += $_GET['inpBelgiumMatchFive'];
                   if ($_GET['inpBelgiumMatchFive'] > $_GET['inpCroitiaMatchFive'] ) {
-                          $teams["belgium"]['point'] += 3;
-                          $teams["belgium"]['gan'] += 1;
-                          $teams["croitia"]['per'] += 1;
+                          $teams["belgium"]['POINTS'] += 3;
+                          $teams["belgium"]['GAMES_WON'] += 1;
+                          $teams["croitia"]['GAMES_LOSTS'] += 1;
                   } elseif ($_GET['inpBelgiumMatchFive'] < $_GET['inpCroitiaMatchFive']) {
-                          $teams["croitia"]['point'] += 3;
-                          $teams["croitia"]['gan'] += 1;
-                          $teams["belgium"]['per'] += 1;
+                          $teams["croitia"]['POINTS'] += 3;
+                          $teams["croitia"]['GAMES_WON'] += 1;
+                          $teams["belgium"]['GAMES_LOSTS'] += 1;
                   } else {
-                          $teams["belgium"]['point'] += 1;
-                          $teams["belgium"]['emp'] += 1;
-                          $teams["croitia"]['point'] += 1;
-                          $teams["croitia"]['emp'] += 1;
+                          $teams["belgium"]['POINTS'] += 1;
+                          $teams["belgium"]['GAMES_EQUAL'] += 1;
+                          $teams["croitia"]['POINTS'] += 1;
+                          $teams["croitia"]['GAMES_EQUAL'] += 1;
                       };
                 };
                 //=== Match 6  
                 if ($_GET['inpMoroccoMatchSix'] != "" && $_GET['inpCanadaMatchSix'] != "") {
                     #Moroco 
-                    $teams["morocco"]['game'] += 1;
-                    $teams["morocco"]['gf'] += $_GET['inpMoroccoMatchSix'];
-                    $teams["morocco"]['gc'] += $_GET['inpCanadaMatchSix'];
+                    $teams["morocco"]['played'] += 1;
+                    $teams["morocco"]['GOALS_SCORED'] += $_GET['inpMoroccoMatchSix'];
+                    $teams["morocco"]['GOALS_RECEIVED'] += $_GET['inpCanadaMatchSix'];
                     #Canada
-                    $teams["canada"]['game'] += 1;
-                    $teams["canada"]['gf'] += $_GET['inpCanadaMatchSix'];
-                    $teams["canada"]['gc'] += $_GET['inpMoroccoMatchSix'];
+                    $teams["canada"]['played'] += 1;
+                    $teams["canada"]['GOALS_SCORED'] += $_GET['inpCanadaMatchSix'];
+                    $teams["canada"]['GOALS_RECEIVED'] += $_GET['inpMoroccoMatchSix'];
                     if ($_GET['inpMoroccoMatchSix'] > $_GET['inpCanadaMatchSix'] ) {
-                        $teams["morocco"]['point'] += 3;
-                        $teams["morocco"]['gan'] += 1;
-                        $teams["canada"]['per'] += 1;
+                        $teams["morocco"]['POINTS'] += 3;
+                        $teams["morocco"]['GAMES_WON'] += 1;
+                        $teams["canada"]['GAMES_LOSTS'] += 1;
                     } elseif ($_GET['inpMoroccoMatchSix'] < $_GET['inpCanadaMatchSix']) {
-                        $teams["canada"]['point'] += 3;
-                        $teams["canada"]['gan'] += 1;
-                        $teams["morocco"]['per'] += 1;
+                        $teams["canada"]['POINTS'] += 3;
+                        $teams["canada"]['GAMES_WON'] += 1;
+                        $teams["morocco"]['GAMES_LOSTS'] += 1;
                     } else {
-                             $teams["morocco"]['point'] += 1;
-                             $teams["morocco"]['emp'] += 1;
-                             $teams["canada"]['point'] += 1;
-                             $teams["canada"]['emp'] += 1;
+                             $teams["morocco"]['POINTS'] += 1;
+                             $teams["morocco"]['GAMES_EQUAL'] += 1;
+                             $teams["canada"]['POINTS'] += 1;
+                             $teams["canada"]['GAMES_EQUAL'] += 1;
                             };
                 };
-                $inpOne = $teams["morocco"]['game'];
+                /*
+                =============================== Sort  ==========================================
+                */   
+                $columns = array_column($teams, 'POINTS');
+                array_multisort($columns, SORT_DESC, $teams);
+                
+                // foreach ($teams as $keyTeams => $valueTeams) {
+                //     if ($valueTeams["POINTS"] == $valueTeams["POINTS"]) {
+                //         $columns = array_column($teams, 'DIFF');
+                //         array_multisort($columns, SORT_DESC, $teams);
+                //     }
+                // }
+                
+                
+                if ($teams["morocco"]['POINTS'] == $teams["croitia"]['POINTS'] && $teams["belgium"]['POINTS'] == $teams["canada"]['POINTS'] && $teams["morocco"]['POINTS'] == $teams["canada"]['POINTS']) {
+                    $columns = array_column($teams, 'GOALS_SCORED');
+                    array_multisort($columns, SORT_DESC, $teams);
+                } else {
+                    $columns = array_column($teams, 'POINTS');
+                    array_multisort($columns, SORT_DESC, $teams);
+                }
+              }; // close button submite
+
                 // setcookie('teams', json_encode($teams));
-/*
-=============================== Sort  ==========================================
-*/   
-    $columns = array_column($teams, 'point');
-    array_multisort($columns, SORT_DESC, $teams);
-
-    // foreach ($teams as $keyTeams => $valueTeams) {
-    // }
-
-    // function sort_point($team_One, $team_Two, $teams) {
-    //     if ($team_One == $team_Two) {
-    //         $columns = array_column($teams, 'diff');
-    //         array_multisort($columns, SORT_DESC, $teams);
-    //     };
-    // };
-    // sort_point( $teams["morocco"]['point'], $teams["croitia"]['point'], $teams );
-    // sort_point( $teams["morocco"]['point'], $teams["belgium"]['point'], $teams );
-    // sort_point( $teams["morocco"]['point'], $teams["canada"]['point'], $teams );
-    // sort_point( $teams["belgium"]['point'], $teams["canada"]['point'], $teams );
-    // sort_point( $teams["belgium"]['point'], $teams["croitia"]['point'], $teams );
-    // sort_point( $teams["canada"]['point'], $teams["croitia"]['point'], $teams );
-
-    // if ($teams["morocco"]['point'] == $teams["croitia"]['point'] && $teams["belgium"]['point'] == $teams["canada"]['point'] && $teams["morocco"]['point'] == $teams["canada"]['point']) {
-    //     $columns = array_column($teams, 'gf');
-    //     array_multisort($columns, SORT_DESC, $teams);
-    // } else {
-    //     // if ($teams["morocco"]['point'] == $teams["croitia"]['point']) {
-    //     // $columns = array_column($teams, 'diff');
-    //     // array_multisort($columns, SORT_DESC, $teams);
-    //     // };
-    //     $columns = array_column($teams, 'point');
-    //     array_multisort($columns, SORT_DESC, $teams);
-    // }
-}; // close button submite
-
-// setcookie('teams', json_encode($teams));
-/*
-=============================== shw data in table (tbody) ==========================================
-*/   
-$i;
-foreach ($teams as $key => $value) :
-    $diffzz = ($value['gf'] - $value['gc']); // Goal difference calculation
-    // show row in table (tbody)
-            echo 
-            "<tr>
-                <th>" . $i . "</th>     
-                <th>" . $key . "</th>
-                <td>" . $value['point'] . "</td>
-                <td>" . $value['game'] . "</td>
-                <td>" . $value['gan'] . "</td>
-                <td>" . $value['emp'] . "</td>
-                <td>" . $value['per'] . "</td>
-                <td>" .$value['gf'] . "</td>
-                <td>" .$value['gc'] . "</td>
-                <td>" .$diffzz . "</td>
-            </tr>";
-            $i++;
-        endforeach;
-
-
-
-
-?>
+                /*
+                =============================== shw data in table (tbody) ==========================================
+                */   
+                $i;
+                foreach ($teams as $key => $value) :
+                    $DIFFzz = ($value['GOALS_SCORED'] - $value['GOALS_RECEIVED']); // Goal DIFFerence calculation
+                    // show row in table (tbody)
+                            echo 
+                            "<tr>
+                                <th>" . $i . "</th>     
+                                <th>" . $key . "</th>
+                                <td>" . $value['POINTS'] . "</td>
+                                <td>" . $value['played'] . "</td>
+                                <td>" . $value['GAMES_WON'] . "</td>
+                                <td>" . $value['GAMES_EQUAL'] . "</td>
+                                <td>" . $value['GAMES_LOSTS'] . "</td>
+                                <td>" .$value['GOALS_SCORED'] . "</td>
+                                <td>" .$value['GOALS_RECEIVED'] . "</td>
+                                <td>" .$DIFFzz . "</td>
+                            </tr>";
+                            $i++;
+                endforeach; 
+                ?>
             </tbody>
-        </table>
+      </table>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

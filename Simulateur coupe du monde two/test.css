@@ -1,6 +1,8 @@
-/* body {
+body {
     background-color: #303134;
-} */
+    color: #eee;
+    background: url(images/1.jpg) center center/cover;
+}
 nav {
     /* background-color: #0351b3; */
     background-color: rgb(131, 10, 66);

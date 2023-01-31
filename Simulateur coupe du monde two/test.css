@@ -1,7 +1,7 @@
 body {
-    background-color: #303134;
+    /* background-color: #303134; */
     color: #eee;
-    background: url(images/1.jpg) center center/cover;
+    background: url(images/4.jpg) center center/cover;
 }
 nav {
     /* background-color: #0351b3; */
@@ -29,27 +29,13 @@ form {
     color: #eee;
 } 
 
-/* slide */
-.slide-one {
-    background: url(images/1.jpg)center center/cover;
-    height: 200px;
-}
-.slide-two {
-    background: url(images/2.jpg)center center/cover;
-    height: 200px;
-}
-.slide-three {
-    background: url(images/3.jpg)center center/cover;
-    height: 200px;
-}
-
 input {
     width: 60px;
     height: 60px;
     outline: none;
     border: none;
-    background-color: #000;
-    color: #FFF;
+    background-color: #eee;
+    color: #000;
     margin-left: 5%;
     margin-top: 3%;
     border-radius: 5px;
